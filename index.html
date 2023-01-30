@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Etch-a-Sketch</title>
+</head>
+<body>
+    <div id="etch-a-sketch">
+        <div id="screen">
+
+        </div>
+        <div id="slider-container">
+
+            <h1 id="size-label">Size: <span id="sizeValue"></span></h2>
+            <input type="range" value="16" min="5" max="64" id="sizeSlider">
+        </div>
+        <div id="button-container">
+            <input type="color" id="color-picker">
+            <button id="eraser">Eraser</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+</body>
+<script src="etch.js"></script>
+</html>
