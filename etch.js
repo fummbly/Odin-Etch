@@ -1,11 +1,12 @@
 const DEFAULT_SIZE = 16;
-const DEFAULT_COLOR = '#000'
+const DEFAULT_COLOR = '#000000'
 
 let currentColor = DEFAULT_COLOR;
 let currentSize = DEFAULT_SIZE;
 
 function setCurrentColor(newColor) {
     currentColor = newColor
+    colorPicker.value = newColor
 }
 
 function setCurrentSize(newSize) {
@@ -17,6 +18,13 @@ function setCurrentSize(newSize) {
 const screen = document.getElementById('screen')
 const slider = document.getElementById('sizeSlider')
 const sizeValue = document.getElementById('sizeValue')
+const eraser = document.getElementById('eraser')
+const reset = document.getElementById('reset')
+const colorPicker = document.getElementById('color-picker')
+
+reset.addEventListener('click', () => reloadGrid())
+eraser.addEventListener('click', () => setCurrentColor("#ffffff"))
+colorPicker.oninput = (e) => setCurrentColor(e.target.value)
 
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true)
@@ -57,7 +65,7 @@ function reloadGrid() {
 }
 
 function updateSizeValue(size) {
-    sizeValue.innerHTML = size
+    sizeValue.innerHTML = `${size} x ${size}`
 }
 
 function clearGrid() {
@@ -67,6 +75,7 @@ function clearGrid() {
 
 window.onload = () => {
     changeSize(DEFAULT_SIZE)
-    
+    setCurrentColor(DEFAULT_COLOR)
+
 
 }
